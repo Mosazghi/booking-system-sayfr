@@ -25,14 +25,11 @@ class DropInRoom(
     name: String,
     windowType: WindowType,
     ovenTemperature: Float,
-) : Room(name, windowType, ovenTemperature) {
-   
-}
+) : Room(name, windowType, ovenTemperature)
 
 class NotDropInRoom(
     name: String,
     windowType: WindowType,
     ovenTemperature: Float,
-) : Room(name, windowType, ovenTemperature) {
+) : Room(name, windowType, ovenTemperature)
   
-}

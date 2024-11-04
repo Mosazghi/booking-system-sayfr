@@ -15,7 +15,7 @@ class RoomBookingTests {
     @Test
     fun testGetDropInRooms() {
         val dropInRooms = getDropInRooms()
-        assertEquals(3, dropInRooms.size, "Expected 3 drop-in rooms")
+        assertEquals(3, dropInRooms!!.size, "Expected 3 drop-in rooms")
     }
 
     @Test
@@ -23,7 +23,7 @@ class RoomBookingTests {
         rooms[0].bookRoom() // DropInRoom1
         rooms[4].bookRoom() // NotDropInRoom2
         val bookableRooms = getBookableRooms()
-        println(bookableRooms.joinToString { it.name })
+        println(bookableRooms!!.joinToString { it.name })
         assertEquals(4, bookableRooms.size, "Expected 4 bookable rooms after booking one")
         assertFalse(bookableRooms.contains(rooms[0]), "Booked drop-in room should not be in the bookable list")
         assertTrue(bookableRooms.contains(rooms[4]), "Booked NOT drop-in room should not be in the bookable list")

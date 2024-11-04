@@ -15,10 +15,9 @@ var rooms = listOf(
 fun main() {
     // Eksempel på bruk
     val dropInRooms = getDropInRooms()
-    println("Drop-in rom: ${dropInRooms.joinToString { it.name }}")
-    println("Test: ${dropInRooms[0].name}")
+    println("Drop-in rom: ${dropInRooms!!.joinToString { it.name }}")
     val bookableRooms = getBookableRooms()
-    println("Bookbare rom: ${bookableRooms.joinToString { it.name }}")
+    println("Bookbare rom: ${bookableRooms!!.joinToString { it.name }}")
 
     val varmestRoom = getWarmestRoom(10.0f)
     println("Varmest rom med utetemperatur 10*C: ${varmestRoom?.name}")
@@ -30,14 +29,12 @@ fun main() {
 fun getAllRooms(): List<Room> = rooms
 
 // Oppg. 1
-fun getDropInRooms() : List<Room> {
-   return getAllRooms().filter {
-        it is DropInRoom
-    }
+fun getDropInRooms() : List<Room>? {
+   return getAllRooms().filterIsInstance<DropInRoom>()
 }
 
 // Oppg. 2
-fun getBookableRooms() : List<Room> {
+fun getBookableRooms() : List<Room>? {
     return getAllRooms().filter {
         it.isAvailable() || it is NotDropInRoom
     }
